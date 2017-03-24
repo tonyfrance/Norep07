@@ -9,14 +9,17 @@ void imprime(int num[6]);
 
 int main()
 {
-    int  num[6];
+    int i, num[6];
 
     srand( time(NULL));
 
     printf("tabela com os numero sem repeticao de 1 a 6\n");
     printf("a tabela se repetira por 100 vezes\n\n");
 
-    norep(num);
+    for(i=0;i<100;i++)
+    {
+         norep(num);
+    }
 
     return 0;
 }
