@@ -1,71 +1,72 @@
+/*programa que gera 100 linhas com numeros de 1 a 6 sem repeticao em cada linha*/
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
-void norep(int num[6]);
+#define L_MAX 100
+#define N_SR 6
+
+void norep(int num[]);
 int sorteio();
-void imprime(int num[6]);
+void imprime(int num[]);
 
 int main()
 {
-    int i, num[6];
+    int  num[N_SR];
 
     srand( time(NULL));
 
     printf("tabela com os numero sem repeticao de 1 a 6\n");
     printf("a tabela se repetira por 100 vezes\n\n");
 
-    for(i=0;i<100;i++)
-    {
-         norep(num);
-    }
+    norep(num);
 
     return 0;
 }
 
-void norep(int num[6])
+void norep(int num[])
 {
-    int j,i;
-
-    for(j=0;j<6;j++) /*zerando o vetor de numeros aleatorios*/
+    int j,i,k;
+    for(k=0;k<L_MAX;k++)
     {
-        num[j]=0;
-    }
-
-    for(j=0;j<6;j++)
-    {    
-
-        num[j]=sorteio();
-        for(i=0;i<j;i++)/*tirando a repeticao*/
+        for(j=0;j<N_SR;j++) /*zerando o vetor de numeros aleatorios*/
         {
-            if(num[i]==num[j])
-            {
-                j--;
-                break;
-            }
-
+            num[j]=0;
         }
-
+        
+        for(j=0;j<N_SR;j++)
+        {    
+            num[j]=sorteio();
+            for(i=0;i<j;i++)/*tirando a repeticao*/
+            {
+                if(num[i]==num[j])
+                {
+                    j--;
+                    break;
+                }
+            }
+        }
+        imprime(num);
     }
-    imprime(num);
     return;
 }
+
 int sorteio()
 {
     int num;
-    num= (rand()%6)+1;
+    num= (rand()%N_SR)+1;
 
     return num;
 }
-void imprime(int num[6])
+
+void imprime(int num[])
 {
     int i;
 
-    for(i=0;i<6;i++)
+    for(i=0;i<N_SR;i++)
     {
         printf("|%d\t",num[i]);
-
     }
     printf(" \n");
     return ;
