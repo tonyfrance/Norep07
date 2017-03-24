@@ -9,7 +9,7 @@
 
 void norep(int num[]);
 int sorteio();
-void imprime(int num[]);
+void imprime(int num[],int lin);
 
 int main()
 {
@@ -47,7 +47,7 @@ void norep(int num[])
                 }
             }
         }
-        imprime(num);
+        imprime(num,k+1);
     }
     return;
 }
@@ -60,9 +60,11 @@ int sorteio()
     return num;
 }
 
-void imprime(int num[])
+void imprime(int num[],int lin)
 {
     int i;
+
+    printf("Linha %d ",lin);
 
     for(i=0;i<N_SR;i++)
     {
