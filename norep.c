@@ -5,23 +5,24 @@
 
 void norep(int num[6]);
 int sorteio();
-
+void imprime(int num[6]);
 
 int main()
 {
-    int i, num[6];
+    int  num[6];
     srand( time(NULL));
 
     printf("tabela com os numero sem repeticao de 1 a 6\n");
     printf("a tabela se repetira por 100 vezes\n\n");
 
+    
     norep(num);
-    for(i=0;i<6;i++)
+   /* for(i=0;i<6;i++)
     {
         printf("|%d\t",num[i]);
 
     }
-    printf("FIM\n");
+    printf("FIM\n");*/
     return 0;
 }
 
@@ -34,6 +35,7 @@ void norep(int num[6])
 
         num[j]=sorteio();
     }
+    imprime(num);
     return;
 }
 int sorteio()
@@ -42,5 +44,17 @@ int sorteio()
     num= (rand()%6)+1;
     
     return num;
+}
+void imprime(int num[6])
+{
+    int i;
+
+    for(i=0;i<6;i++)
+    {
+        printf("|%d\t",num[i]);
+
+    }
+    printf("FIM\n");
+    return ;
 }
 
