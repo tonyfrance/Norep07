@@ -67,7 +67,7 @@ void imprime(int num[6])
         printf("|%d\t",num[i]);
 
     }
-    printf("FIM\n");
+    printf(" \n");
     return ;
 }
 
